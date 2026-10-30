@@ -1,6 +1,12 @@
 package se.iths.felix.records;
 
 import se.iths.felix.records.model.*;
+import se.iths.felix.records.model.Computer;
+import se.iths.felix.records.model.Headset;
+import se.iths.felix.records.model.Monitor;
+import se.iths.felix.records.model.Mouse;
+import se.iths.felix.records.model.Phone;
+import se.iths.felix.records.model.*;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -47,6 +53,13 @@ return headsets.stream()
         .map(headset -> headset.title())
         .findFirst()
         .orElseThrow();
+    }
+
+    public Keyboard findFirstKeyboardByWireless(List<Keyboard> keyboards, boolean wireless){
+        return keyboards.stream()
+                .filter(keyboard -> keyboard.wireless() == wireless)
+                .findFirst()
+                .orElseThrow(NoSuchElementException::new);
     }
     public String findFirstWebcamTitleByMinResolution(
             List<Webcam> webcamList, int minMegapixels){

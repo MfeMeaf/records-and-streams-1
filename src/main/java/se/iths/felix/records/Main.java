@@ -2,6 +2,7 @@ package se.iths.felix.records;
 
 import se.iths.felix.records.model.*;
 
+import java.security.Key;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,6 +24,9 @@ public class Main {
         Monitor monitorWide = new Monitor("Wide boy", 49);
         Monitor monitorNotSoWide = new Monitor("Average boy", 25);
 
+        Keyboard notWireslessKeyboard = new Keyboard("Not Wrieless",false);
+        Keyboard wirelessKeyboard= new Keyboard("Wireless", true);
+
 
         List<Computer> computerList = List.of(pc,computer);
         List<Phone> phoneList = List.of(magicPhone,magePhone);
@@ -31,6 +35,7 @@ public class Main {
         List<Monitor> monitorList = List.of(monitorWide,monitorNotSoWide);
         List <Webcam> webcamList = List.of(webcam,webcam1);
 
+        List<Keyboard> keyboardList = List.of(notWireslessKeyboard,wirelessKeyboard);
 
         WebShopService webShopService = new WebShopService();
         IO.println(webShopService.findFirstPhoneUnderPrice(phoneList, 6000));
@@ -40,6 +45,7 @@ public class Main {
         IO.println(webShopService.findFirstMonitorTitleByMinSize(monitorList,30));
         IO.println(webShopService.findFirstWebcamTitleByMinResolution(webcamList,70));
 
+        IO.println(webShopService.findFirstKeyboardByWireless(keyboardList, true));
 //        Optional<Computer> mostExpensive =
 //                webShopService.findMostExpensiveComputer(computerList);
 //
