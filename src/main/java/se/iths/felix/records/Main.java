@@ -1,6 +1,7 @@
 package se.iths.felix.records;
 
 import se.iths.felix.records.model.Computer;
+import se.iths.felix.records.model.Headset;
 import se.iths.felix.records.model.Monitor;
 import se.iths.felix.records.model.Mouse;
 import se.iths.felix.records.model.Phone;
@@ -16,6 +17,9 @@ public class Main {
         Phone magePhone = new Phone("Frog Phone", 5000);
         Mouse mouse = new Mouse("mouse",1450);
         Mouse mouse1 = new Mouse("mouse1",1660);
+        Headset headset = new Headset("Headset", 299);
+        Headset headset1 = new Headset("Headset1",399);
+
         Monitor monitorWide = new Monitor("Wide boy", 49);
         Monitor monitorNotSoWide = new Monitor("Average boy", 25);
 
@@ -23,12 +27,14 @@ public class Main {
         List<Computer> computerList = List.of(pc,computer);
         List<Phone> phoneList = List.of(magicPhone,magePhone);
         List<Mouse>mice = List.of(mouse,mouse1);
+        List<Headset> headsets = List.of(headset,headset1);
         List<Monitor> monitorList = List.of(monitorWide,monitorNotSoWide);
 
         WebShopService webShopService = new WebShopService();
         IO.println(webShopService.findFirstPhoneUnderPrice(phoneList, 6000));
         IO.println(webShopService.findMostExpensiveComputer(computerList));
         IO.println(webShopService.findFirstMouseByMinDpi(mice,1500));
+        IO.println(webShopService.findFirstHeadsetTitleUnderPrice(headsets,350));
         IO.println(webShopService.findFirstMonitorTitleByMinSize(monitorList,30));
 
 //        Optional<Computer> mostExpensive =
