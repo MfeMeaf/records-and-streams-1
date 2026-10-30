@@ -1,9 +1,11 @@
 package se.iths.felix.records;
 
 import se.iths.felix.records.model.Computer;
+import se.iths.felix.records.model.Monitor;
 import se.iths.felix.records.model.Phone;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 public class WebShopService {
@@ -21,8 +23,16 @@ public class WebShopService {
         Phone phone = phones.stream()
                 .filter(a -> a.price() < maxPrice)
                 .findFirst()
-                .orElseThrow();
+                .orElseThrow(NoSuchElementException::new);
         return phone;
+    }
+
+    public Monitor findFirstMonitorTitleByMinSize(List<Monitor> monitors, int minInches){
+        Monitor monitor = monitors.stream()
+                .filter(a -> a.inches() < minInches)
+                .findFirst()
+                .orElseThrow(NoSuchElementException::new);
+        return monitor;
     }
 
 }
