@@ -1,9 +1,9 @@
-package se.iths.felix.records;
+package se.iths.felix.records.model;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import se.iths.felix.records.model.Phone;
+import se.iths.felix.records.WebShopService;
 
 import java.util.List;
 
