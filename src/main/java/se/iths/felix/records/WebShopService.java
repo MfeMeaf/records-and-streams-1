@@ -1,6 +1,7 @@
 package se.iths.felix.records;
 
 import se.iths.felix.records.model.Computer;
+import se.iths.felix.records.model.Headset;
 import se.iths.felix.records.model.Mouse;
 import se.iths.felix.records.model.Phone;
 
@@ -33,6 +34,13 @@ public class WebShopService {
                 .findFirst()
                 .orElseThrow();
 
+    }
+    public String findFirstHeadsetTitleUnderPrice(List<Headset> headsets, double maxPrice){
+return headsets.stream()
+        .filter(headset -> headset.price() < maxPrice)
+        .map(headset -> headset.title())
+        .findFirst()
+        .orElseThrow();
     }
 }
 
