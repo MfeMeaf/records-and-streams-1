@@ -1,11 +1,8 @@
 package se.iths.felix.records;
 
-import se.iths.felix.records.model.Computer;
-import se.iths.felix.records.model.Headset;
-import se.iths.felix.records.model.Monitor;
-import se.iths.felix.records.model.Mouse;
-import se.iths.felix.records.model.Phone;
+import se.iths.felix.records.model.*;
 
+import java.security.Key;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,12 +20,16 @@ public class Main {
         Monitor monitorWide = new Monitor("Wide boy", 49);
         Monitor monitorNotSoWide = new Monitor("Average boy", 25);
 
+        Keyboard notWireslessKeyboard = new Keyboard("Not Wrieless",false);
+        Keyboard wirelessKeyboard= new Keyboard("Wireless", true);
+
 
         List<Computer> computerList = List.of(pc,computer);
         List<Phone> phoneList = List.of(magicPhone,magePhone);
         List<Mouse>mice = List.of(mouse,mouse1);
         List<Headset> headsets = List.of(headset,headset1);
         List<Monitor> monitorList = List.of(monitorWide,monitorNotSoWide);
+        List<Keyboard> keyboardList = List.of(notWireslessKeyboard,wirelessKeyboard);
 
         WebShopService webShopService = new WebShopService();
         IO.println(webShopService.findFirstPhoneUnderPrice(phoneList, 6000));
@@ -36,7 +37,7 @@ public class Main {
         IO.println(webShopService.findFirstMouseByMinDpi(mice,1500));
         IO.println(webShopService.findFirstHeadsetTitleUnderPrice(headsets,350));
         IO.println(webShopService.findFirstMonitorTitleByMinSize(monitorList,30));
-
+        IO.println(webShopService.findFirstKeyboardByWireless(keyboardList, true));
 //        Optional<Computer> mostExpensive =
 //                webShopService.findMostExpensiveComputer(computerList);
 //
