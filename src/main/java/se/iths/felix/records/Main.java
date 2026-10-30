@@ -13,11 +13,12 @@ public class Main {
         List<Computer> computerList = List.of(pc,computer);
 
         WebShopService webShopService = new WebShopService();
-        Optional<Computer> mostExpensive =
-                webShopService.findMostExpensiveComputer(computerList);
-
-        if(mostExpensive.isPresent()){
-            IO.println(mostExpensive.get());
-        }
+        IO.println(webShopService.findMostExpensiveComputer(computerList));
+//        Optional<Computer> mostExpensive =
+//                webShopService.findMostExpensiveComputer(computerList);
+//
+//        if(mostExpensive.isPresent()){
+//            IO.println(mostExpensive.get());
+//        }
     }
 }

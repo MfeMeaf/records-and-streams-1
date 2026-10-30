@@ -8,10 +8,11 @@ import java.util.Optional;
 public class WebShopService {
 
 
-    public Optional<Computer> findMostExpensiveComputer(List<Computer> computerList){
-        Optional<Computer> computer = computerList.stream()
+    public Computer findMostExpensiveComputer(List<Computer> computerList){
+        Computer computer = computerList.stream()
                 .sorted( (a, b) -> Double.compare(b.price(),a.price()))
-                .findFirst();
+                .findFirst()
+                .orElseThrow();
         return computer;
     }
 
