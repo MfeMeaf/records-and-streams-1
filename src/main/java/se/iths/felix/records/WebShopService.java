@@ -1,6 +1,7 @@
 package se.iths.felix.records;
 
 import se.iths.felix.records.model.Computer;
+import se.iths.felix.records.model.Phone;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,6 +15,14 @@ public class WebShopService {
                 .findFirst()
                 .orElseThrow();
         return computer;
+    }
+
+    public Phone findFirstPhoneUnderPrice(List<Phone> phones, double maxPrice){
+        Phone phone = phones.stream()
+                .filter(a -> a.price() < maxPrice)
+                .findFirst()
+                .orElseThrow();
+        return phone;
     }
 
 }
