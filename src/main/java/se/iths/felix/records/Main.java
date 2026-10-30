@@ -16,6 +16,10 @@ public class Main {
         Mouse mouse1 = new Mouse("mouse1",1660);
         Headset headset = new Headset("Headset", 299);
         Headset headset1 = new Headset("Headset1",399);
+        Webcam webcam = new Webcam("Webcam",7);
+        Webcam webcam1 = new Webcam("Webcam1",14);
+
+
 
         Monitor monitorWide = new Monitor("Wide boy", 49);
         Monitor monitorNotSoWide = new Monitor("Average boy", 25);
@@ -29,6 +33,8 @@ public class Main {
         List<Mouse>mice = List.of(mouse,mouse1);
         List<Headset> headsets = List.of(headset,headset1);
         List<Monitor> monitorList = List.of(monitorWide,monitorNotSoWide);
+        List <Webcam> webcamList = List.of(webcam,webcam1);
+
         List<Keyboard> keyboardList = List.of(notWireslessKeyboard,wirelessKeyboard);
 
         WebShopService webShopService = new WebShopService();
@@ -37,6 +43,8 @@ public class Main {
         IO.println(webShopService.findFirstMouseByMinDpi(mice,1500));
         IO.println(webShopService.findFirstHeadsetTitleUnderPrice(headsets,350));
         IO.println(webShopService.findFirstMonitorTitleByMinSize(monitorList,30));
+        IO.println(webShopService.findFirstWebcamTitleByMinResolution(webcamList,70));
+
         IO.println(webShopService.findFirstKeyboardByWireless(keyboardList, true));
 //        Optional<Computer> mostExpensive =
 //                webShopService.findMostExpensiveComputer(computerList);

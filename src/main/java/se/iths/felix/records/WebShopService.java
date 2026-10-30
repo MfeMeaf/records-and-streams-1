@@ -1,5 +1,6 @@
 package se.iths.felix.records;
 
+import se.iths.felix.records.model.*;
 import se.iths.felix.records.model.Computer;
 import se.iths.felix.records.model.Headset;
 import se.iths.felix.records.model.Monitor;
@@ -60,5 +61,15 @@ return headsets.stream()
                 .findFirst()
                 .orElseThrow(NoSuchElementException::new);
     }
+    public String findFirstWebcamTitleByMinResolution(
+            List<Webcam> webcamList, int minMegapixels){
+        return webcamList.stream()
+                .filter(webcam -> webcam.megapixels() >= minMegapixels)
+                .map(webcam -> webcam.titel())
+                .findFirst()
+                .orElseThrow();
+
+    }
+
 }
 
