@@ -1,6 +1,7 @@
 package se.iths.felix.records;
 
 import se.iths.felix.records.model.Computer;
+import se.iths.felix.records.model.Mouse;
 import se.iths.felix.records.model.Phone;
 
 import java.util.List;
@@ -12,13 +13,18 @@ public class Main {
         Computer computer = new Computer("Kebabputer", 15000);
         Phone magicPhone = new Phone("Orb 120", 9999);
         Phone magePhone = new Phone("Frog Phone", 5000);
+        Mouse mouse = new Mouse("mouse",1450);
+        Mouse mouse1 = new Mouse("mouse1",1660);
+
 
         List<Computer> computerList = List.of(pc,computer);
         List<Phone> phoneList = List.of(magicPhone,magePhone);
+        List<Mouse>mice = List.of(mouse,mouse1);
 
         WebShopService webShopService = new WebShopService();
         IO.println(webShopService.findFirstPhoneUnderPrice(phoneList, 6000));
         IO.println(webShopService.findMostExpensiveComputer(computerList));
+        IO.println(webShopService.findFirstMouseByMinDpi(mice,1500));
 
 //        Optional<Computer> mostExpensive =
 //                webShopService.findMostExpensiveComputer(computerList);
@@ -26,5 +32,9 @@ public class Main {
 //        if(mostExpensive.isPresent()){
 //            IO.println(mostExpensive.get());
 //        }
+
+
+
+        }
     }
-}
+
