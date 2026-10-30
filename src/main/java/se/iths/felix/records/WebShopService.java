@@ -1,6 +1,7 @@
 package se.iths.felix.records;
 
 import se.iths.felix.records.model.Computer;
+import se.iths.felix.records.model.Mouse;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,11 +9,20 @@ import java.util.Optional;
 public class WebShopService {
 
 
-    public Optional<Computer> findMostExpensiveComputer(List<Computer> computerList){
+    public Optional<Computer> findMostExpensiveComputer(List<Computer> computerList) {
         Optional<Computer> computer = computerList.stream()
-                .sorted( (a, b) -> Double.compare(b.price(),a.price()))
+                .sorted((a, b) -> Double.compare(b.price(), a.price()))
                 .findFirst();
         return computer;
     }
 
-}
+
+    public Mouse findFirstMouseByMinDpi(List<Mouse> mice, int minDpi){
+            return mice.stream()
+                    .filter(mouse -> mouse.dpi() >= minDpi)
+                    .findFirst()
+                    .orElseThrow();
+
+        }
+    }
+

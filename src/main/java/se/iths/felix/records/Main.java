@@ -1,6 +1,7 @@
 package se.iths.felix.records;
 
 import se.iths.felix.records.model.Computer;
+import se.iths.felix.records.model.Mouse;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +19,12 @@ public class Main {
 
         if(mostExpensive.isPresent()){
             IO.println(mostExpensive.get());
+
+            Mouse mouse = new Mouse("mouse",1450);
+            Mouse mouse1 = new Mouse("mouse1",1660);
+
+            List<Mouse>mice = List.of(mouse,mouse1);
+
         }
     }
 }
